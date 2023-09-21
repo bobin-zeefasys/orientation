@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "Orientation.h"//rno
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -22,5 +23,11 @@
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
+
+//rno
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  return [Orientation getOrientation];
+}//rno
+
 
 @end
