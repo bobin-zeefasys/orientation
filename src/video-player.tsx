@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Dimensions, ScaledSize, StyleSheet, View} from 'react-native';
-import Video from 'react-native-media-console';
+// import Video from 'react-native-media-console';
+import Video from 'react-native-video';
 import Orientation from 'react-native-orientation-locker';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {mediaJSON} from './movies';
@@ -31,7 +32,7 @@ function VideoPlayer() {
   }, []);
 
   const onLoad = () => {
-    player?.current?.presentFullscreenPlayer();
+    // player?.current?.presentFullscreenPlayer();
   };
   const goBack = () => {
     const canGoBack = navigation.canGoBack();
@@ -42,19 +43,20 @@ function VideoPlayer() {
   return (
     <>
       <Video
-        videoRef={player}
+        // videoRef={player}
+        ref={player}
         source={{uri: source}} // Can be a URL or a local file.
-        // style={styles.backgroundVideo}
-        style={{height, width}}
+        style={styles.backgroundVideo}
+        // style={{height, width}}
         onLoad={onLoad}
-        // fullscreen
-        // fullscreenAutorotate
-        // fullscreenOrientation="landscape"
+        fullscreen
+        fullscreenAutorotate
+        fullscreenOrientation="landscape"
         controls
         onEnd={goBack}
-        onBack={goBack}
-        showOnStart
-        showOnEnd
+        // onBack={goBack}
+        // showOnStart
+        // showOnEnd
         resizeMode="contain"
       />
     </>
@@ -62,14 +64,14 @@ function VideoPlayer() {
 }
 const styles = StyleSheet.create({
   backgroundVideo: {
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // bottom: 0,
-    // right: 0,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
     backgroundColor: 'black',
     justifyContent: 'center',
-    flex: 1,
+    // flex: 1,
   },
 });
 export {VideoPlayer};
