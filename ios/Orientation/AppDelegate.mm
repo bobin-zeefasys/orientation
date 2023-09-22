@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "Orientation.h"//rno
+#import "Orientation.h" //rn
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -24,10 +24,10 @@
 #endif
 }
 
-//rno
+//rn
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
   return [Orientation getOrientation];
-}//rno
-
+}
+//rn
 
 @end
