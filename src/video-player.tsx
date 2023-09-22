@@ -19,7 +19,9 @@ function VideoPlayer() {
     useNavigation();
   const screen: ScaledSize = Dimensions.get('screen');
   const height = screen.height;
+  // console.log('height: ', height);
   const width = screen.width;
+  // console.log('width: ', width);
 
   useEffect(() => {
     Orientation.lockToLandscape();
@@ -38,31 +40,33 @@ function VideoPlayer() {
     }
   };
   return (
-    <Video
-      videoRef={player}
-      source={{uri: source}} // Can be a URL or a local file.
-      style={styles.backgroundVideo}
-      // style={{height, width}}
-      onLoad={onLoad}
-      fullscreen
-      fullscreenAutorotate
-      fullscreenOrientation="landscape"
-      controls
-      onEnd={goBack}
-      onBack={goBack}
-      showOnStart
-      showOnEnd
-      resizeMode='contain'
-    />
+    <>
+      <Video
+        videoRef={player}
+        source={{uri: source}} // Can be a URL or a local file.
+        // style={styles.backgroundVideo}
+        style={{height, width}}
+        onLoad={onLoad}
+        // fullscreen
+        // fullscreenAutorotate
+        // fullscreenOrientation="landscape"
+        controls
+        onEnd={goBack}
+        onBack={goBack}
+        showOnStart
+        showOnEnd
+        resizeMode="contain"
+      />
+    </>
   );
 }
 const styles = StyleSheet.create({
   backgroundVideo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // bottom: 0,
+    // right: 0,
     backgroundColor: 'black',
     justifyContent: 'center',
     flex: 1,
